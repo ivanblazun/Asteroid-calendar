@@ -2,37 +2,24 @@
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+
+.daysInMonth{
+ display: grid;
+grid-template-columns: repeat(7, 1fr);
+grid-template-rows: repeat(6, 1fr);
+grid-column-gap: 5px;
+grid-row-gap: 5px;
+border: 1px solid black;
+border-radius: 5px;
+padding: 0.4rem;
+width: fit-content;
+height: fit-content;
+
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.eachDay{
+  width: 6rem;
+  border: 1px solid black;
+  border-radius: 5px;  
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
