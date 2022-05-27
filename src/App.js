@@ -2,13 +2,13 @@
 import './App.css';
 
 //comps
-import Calender from './comps/calender/Calender';
+import Calendar from './comps/Calendar';
 
 
 function App() {
   return (
     <div className="App">
-      <Calender />
+      <Calendar />
     </div>
   );
 }

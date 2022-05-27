@@ -1,25 +1,63 @@
 .App {
   text-align: center;
 }
-
-
-.daysInMonth{
+.alldaysInMonth{
  display: grid;
 grid-template-columns: repeat(7, 1fr);
-grid-template-rows: repeat(6, 1fr);
+grid-template-rows: repeat(6, 0.2fr);
 grid-column-gap: 5px;
 grid-row-gap: 5px;
 border: 1px solid black;
 border-radius: 5px;
 padding: 0.4rem;
-width: fit-content;
-height: fit-content;
-
 }
+/* .day{
+  cursor: pointer;
+  border: solid 1px black;
+  width: 3rem;
+}
+.day:hover{
+    cursor: pointer;
+  transform: scale(1.1);
+} */
 
+.daysInMonth{
+ display: grid;
+grid-template-columns: repeat(7, 1fr);
+grid-template-rows: repeat(6, 0.2fr);
+grid-column-gap: 5px;
+grid-row-gap: 5px;
+border: 1px solid black;
+border-radius: 5px;
+padding: 0.4rem;
+}
+.daysInMonth:hover{
+     cursor: pointer;
+  transform: scale(1.05);
+  transition: ease-in 0.2s;
+}
+.daysInMonthEmpty{
+   display: grid;
+grid-template-columns: repeat(7, 1fr);
+grid-template-rows: repeat(6, 0.2fr);
+grid-column-gap: 5px;
+grid-row-gap: 5px;
+border: 1px solid rgb(235, 141, 141);
+border-radius: 5px;
+padding: 0.4rem;
+}
 .eachDay{
   width: 6rem;
   border: 1px solid black;
   border-radius: 5px;  
 }
-
+.calendar-container{
+ 
+  margin: 1rem;
+}
+.weekDays{
+  display: flex;
+  flex-direction: row;
+  justify-content:space-around; 
+  align-content:space-around;
+}
