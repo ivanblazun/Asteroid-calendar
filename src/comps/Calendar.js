@@ -1,5 +1,6 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import moment from 'moment'
+import axios from 'axios'
 
 //comps
 import WeekDays from './WeekDays'
@@ -8,14 +9,15 @@ import PrevMonthDays from './PrevMonthDays'
 
 const Calendar = () => {
 
-  const [momentM, setMomentM] = useState(moment().set('month', 4))
-  // const [momentM, setMomentM] = useState(moment())
-  const [today, setToday] = useState(moment())
+  // const [momentM, setMomentM] = useState(moment().set('month', 4))
+  const [momentM, setMomentM] = useState(moment())
+  const [currYear, setCurrYear] = useState(Number(moment().format('Y')))
+
+
 
   let weekDays = moment.weekdays()
-  let weekDaysShort = moment.weekdaysShort()
+  let shortWeekdays = moment.weekdaysShort()
   let months = moment.months()
-
 
   // return functions of string
   let year = () => {
@@ -65,10 +67,48 @@ const Calendar = () => {
     leftDays.push(<span >{''}</span>)
   }
 
+  // prev month
+  const prevMonth = () => {
+    if (momentM.month() > 0) {
+      let prevMonth = moment().set('month', momentM.month() - 1)
+      setMomentM(prevMonth)
+    }
+  }
+
+  // next month
+  const nextMonth = () => {
+    if (momentM.month() < 11) {
+      let prevMonth = moment().set('month', momentM.month() + 1)
+      setMomentM(prevMonth)
+    }
+  }
+
+  const setYear = () => {
+    return moment().set('year', momentM.year(currYear + 1))
+  }
 
   return (
     <div className='calendar-container'>
       <h1>Calendar</h1>
+      <div >
+        <button
+          className=''
+          onClick={prevMonth}>
+          Prev
+        </button>
+        <span>
+          {momentM.format('MMMM')} {' / '}
+          <input
+            type="number"
+            defaultValue={currYear}
+            onClick={e => setCurrYear(e.target.value)}
+            onChange={setYear}
+          />
+        </span>
+        <button onClick={nextMonth}>
+          Next
+        </button>
+      </div>
       <div>
         <WeekDays weekDays={weekDays} />
       </div>
