@@ -1,10 +1,6 @@
-import { weekdays } from 'moment'
-import React, { useState } from 'react'
+import React from 'react'
 
 const WeekDays = ({ weekDays }) => {
-
-
-
   return (
     <div className='weekDays'>
       {weekDays.map((wd, index) =>

@@ -1,6 +1,5 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import moment from 'moment'
-import axios from 'axios'
 
 //comps
 import WeekDays from './WeekDays'
@@ -11,35 +10,13 @@ const Calendar = () => {
 
   // const [momentM, setMomentM] = useState(moment().set('month', 4))
   const [momentM, setMomentM] = useState(moment())
-  const [currYear, setCurrYear] = useState(Number(moment().format('Y')))
 
-
-
+  // list of days in week
   let weekDays = moment.weekdays()
-  let shortWeekdays = moment.weekdaysShort()
-  let months = moment.months()
-
-  // return functions of string
-  let year = () => {
-    return momentM.format('Y')
-  }
-  let month = () => {
-    return momentM.format('MMMM')
-  }
 
   // return function of days in month
   let daysInMonth = () => {
     return momentM.daysInMonth()
-  }
-
-  // return function of current date 
-  let currentDate = () => {
-    return momentM.get('date')
-  }
-
-  // return current day string
-  let currentDay = () => {
-    return momentM.format('D')
   }
 
   // get first day of month 
@@ -82,30 +59,23 @@ const Calendar = () => {
       setMomentM(prevMonth)
     }
   }
-
-  const setYear = () => {
-    return moment().set('year', momentM.year(currYear + 1))
-  }
-
   return (
     <div className='calendar-container'>
-      <h1>Calendar</h1>
+      <div className='header'>
+        <h1>Asteroid approach calendar for 2022</h1>
+      </div>
       <div >
         <button
-          className=''
+          className='prevBtn'
           onClick={prevMonth}>
           Prev
         </button>
-        <span>
-          {momentM.format('MMMM')} {' / '}
-          <input
-            type="number"
-            defaultValue={currYear}
-            onClick={e => setCurrYear(e.target.value)}
-            onChange={setYear}
-          />
+        <span className='month'>
+          {momentM.format('MMMM')}
         </span>
-        <button onClick={nextMonth}>
+        <button
+          className='nextBtn'
+          onClick={nextMonth}>
           Next
         </button>
       </div>
@@ -114,7 +84,7 @@ const Calendar = () => {
       </div>
       <div className='alldaysInMonth'>
         {emptyDays.map((ed, index) => <PrevMonthDays key={index} ed={ed} />)}
-        {daysInCurrentMonth.map((cd, index) => <DaysInMonth key={index} cd={cd} />)}
+        {daysInCurrentMonth.map((cd, index) => <DaysInMonth key={index} cd={cd} month={momentM.format("MM")} />)}
         {leftDays.map((ed, index) => <PrevMonthDays key={index} ed={ed} />)}
       </div>
     </div>
