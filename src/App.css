@@ -1,45 +1,38 @@
 .App {
   text-align: center;
+  background-color:#fad5c7 ;
+  height: 100vh;
 }
 .alldaysInMonth{
  display: grid;
 grid-template-columns: repeat(7, 1fr);
-grid-template-rows: repeat(6, 0.2fr);
+grid-template-rows: repeat(6, 0.1fr);
 grid-column-gap: 5px;
 grid-row-gap: 5px;
 border: 1px solid black;
 border-radius: 5px;
 padding: 0.4rem;
+background-color:
+#63638a
+ ;
 }
-/* .day{
-  cursor: pointer;
-  border: solid 1px black;
-  width: 3rem;
-}
-.day:hover{
-    cursor: pointer;
-  transform: scale(1.1);
-} */
 
 .daysInMonth{
  display: grid;
-grid-template-columns: repeat(7, 1fr);
-grid-template-rows: repeat(6, 0.2fr);
 grid-column-gap: 5px;
 grid-row-gap: 5px;
 border: 1px solid black;
-border-radius: 5px;
+border-radius: 6px 0px 6px 6px;
 padding: 0.4rem;
+
 }
 .daysInMonth:hover{
      cursor: pointer;
   transform: scale(1.05);
-  transition: ease-in 0.2s;
+    transition: ease-in 0.1s;
 }
 .daysInMonthEmpty{
    display: grid;
-grid-template-columns: repeat(7, 1fr);
-grid-template-rows: repeat(6, 0.2fr);
 grid-column-gap: 5px;
 grid-row-gap: 5px;
 border: 1px solid rgb(235, 141, 141);
@@ -47,12 +40,24 @@ border-radius: 5px;
 padding: 0.4rem;
 }
 .eachDay{
-  width: 6rem;
-  border: 1px solid black;
-  border-radius: 5px;  
+display:flex;
+flex-direction: column;
+flex-wrap: wrap;
+justify-content:space-between;
+align-items: center;
+align-content: center;
+width:auto;
+height:min-content;
 }
-.calendar-container{
- 
+
+.eachDayItem{
+      margin: 0.2rem;
+      align-self: center;
+}
+.dayNum{
+  margin: 0.2rem;
+  }
+.calendar-container{ 
   margin: 1rem;
 }
 .weekDays{
@@ -60,4 +65,79 @@ padding: 0.4rem;
   flex-direction: row;
   justify-content:space-around; 
   align-content:space-around;
+  border:2px solid #b5b5f8;
+  border-radius: 10px 10px 0px 0px;
+  background-color: #b5b5f8;
+  font-family: 'Lucida Sans';
+  
+}
+
+.button{
+  width: fit-content;
+  font-size: 12px;
+  font-style: oblique;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  border: 1px solid ;
+  border-radius: 5px 0 5px;
+  background-color: #b5b5f8;
+}
+.button:hover{
+ position: relative;
+  animation: btnAnim 1s;
+  animation-direction: alternate;  
+}
+
+@keyframes btnAnim {
+  0% {
+    left: 0px;
+    top: 0px;
+  }
+  25% {
+    left: 3px;
+    top: 0px;
+  }
+  50% {
+    left: 0px;
+    top: 0px;
+  }
+  75% {
+    left: 3px;
+    top: 00px;
+  }
+  100% {
+    left: 0px;
+    top: 0px;
+  }
+}
+
+.prevBtn{
+  border: 2px solid #faf0e4;
+  border-radius: 14px 0px 0px 14px;
+  margin-right: 0.5rem;
+  margin-bottom: 1rem;
+  background-color:#e6c29a ;
+}
+
+.nextBtn{
+  border: 2px solid #faf0e4;
+  border-radius: 0px 14px 14px 0px;
+  margin-left: 0.5rem;
+  margin-bottom: 1rem;
+  background-color:#e6c29a ;
+}
+
+.month{
+   border: 2px solid #faf0e4;
+   background-color:#e6c29a ;
+   font-size: 17px;
+   height:fit-content;
+   padding: 0.1rem;
+}
+
+.header{
+    border:2px solid #b5b5f8;
+  border-radius: 10px;
+  background-color: #b5b5f8;
+  font-family: 'Lucida Sans';
+  margin: 1rem;
 }
